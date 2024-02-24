@@ -33,35 +33,35 @@ a {
 /* meduim Screen */
 @media screen and (max-width: 1536px) {
   .container {
-    /* width: 1336px; */
+    width: 1336px;
   }
 }
 
 /* small Screen */
 @media screen and (max-width: 1336px) {
   .container {
-    /* width: 1280px; */
+    width: 1280px;
   }
 }
 @media screen and (max-width: 1280px) {
   .container {
-    /* width: 1024px; */
+    width: 1024px;
     padding-left: 20px;
     padding-right: 20px;
   }
 }
-@media screen and (max-width: 10246px) {
+@media screen and (max-width: 1024px) {
   .container {
-    /* width: 768px; */
+    width: 768px;
   }
 }
 @media screen and (max-width: 768px) {
   .container {
-    /* width: 640px; */
+    width: 640px;
   }
 }
 @media screen and (max-width: 640px) {
   .container {
-    /* width: 475px; */
+    width: 475px;
   }
 }
