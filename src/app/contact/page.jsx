@@ -5,11 +5,11 @@ const Contact = () => {
   return (
     <div className={styles.container}>
       {/* left */}
-      <div className="imgContaier">
+      <div className={styles.imgContaier}>
         <Image fill src="/contact.png" className={styles.img} alt="Conatct" />
       </div>
       {/* right */}
-      <div className="formContaier">
+      <div className={styles.formContaier}>
         <form action="" className={styles.form}>
           <input placeholder="Name and Surname" type="text" />
           <input placeholder="Email Address" type="text" />
