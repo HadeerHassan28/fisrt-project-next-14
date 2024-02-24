@@ -20,10 +20,27 @@ const About = () => {
           of web and software development services.
         </p>
         {/* boxes */}
+        <div className={styles.boxes}>
+          {/* 1st box */}
+          <div className={styles.box}>
+            <h1>10 K+</h1>
+            <p>Year of experience</p>
+          </div>
+          {/* 2nd */}
+          <div className={styles.box}>
+            <h1>10 K+</h1>
+            <p>Year of experience</p>
+          </div>
+          {/* 3rd */}
+          <div className={styles.box}>
+            <h1>10 K+</h1>
+            <p>Year of experience</p>
+          </div>
+        </div>
       </div>
       {/* right */}
       <div className={styles.imgContainer}>
-        <Image src="/about.png" alt="About" fill />
+        <Image src="/about.png" alt="About" fill className={styles.img} />
 
         {/* for extranl src  */}
         {/* <Image
