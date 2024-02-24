@@ -3,7 +3,25 @@ import React from "react";
 import styles from "./page.module.css";
 const About = () => {
   return (
-    <div>
+    <div className={styles.container}>
+      {/* left */}
+      <div className={styles.textContainer}>
+        {/* subtitle */}
+        <h2 className={styles.subTitle}>About Agency</h2>
+        {/* title */}
+        <h1 className={styles.title}>
+          We create digital ideas that are bigger, bolder, braver and better.
+        </h1>
+        {/* desc */}
+        <p className={styles.desc}>
+          We create digital ideas that are bigger, bolder, braver and better. We
+          believe in good ideas flexibility and precission We’re world’s Our
+          Special Team best consulting & finance solution provider. Wide range
+          of web and software development services.
+        </p>
+        {/* boxes */}
+      </div>
+      {/* right */}
       <div className={styles.imgContainer}>
         <Image src="/about.png" alt="About" fill />
 
