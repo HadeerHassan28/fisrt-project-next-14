@@ -29,7 +29,9 @@ const PostCard = () => {
           earum totam. Sint accusamus suscipit pariatur quaerat sunt tempora cum
           libero nam.
         </p>
-        <Link href="/blog/post">Read More</Link>
+        <Link href="/blog/post" className={styles.link}>
+          Read More
+        </Link>
       </div>
     </div>
   );
