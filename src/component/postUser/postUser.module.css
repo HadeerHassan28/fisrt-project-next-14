@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.title {
+  color: #3c3c3c;
+  font-weight: bold;
+}
+.username {
+  font-weight: 500;
+}

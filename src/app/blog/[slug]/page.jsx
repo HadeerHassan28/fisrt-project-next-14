@@ -1,7 +1,23 @@
+import PostUser from "@/component/postUser/postUser";
+import { getPost } from "@/lib/data";
 import Image from "next/image";
-import React from "react";
+import React, { Suspense } from "react";
 import styles from "./single-post.module.css";
-const SinglePastPage = () => {
+
+//! fetch data with an API
+// const getData = async (slug) => {
+//   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`);
+//   if (res.ok) return await res.json();
+//   else throw new Error(await res.text());
+// };
+
+const SinglePastPage = async ({ params }) => {
+  const { slug } = params;
+  // const post = await getData(slug);
+  //console.log(params);
+
+  //! fetch without api
+  const post = await getPost(slug);
   return (
     <div className={styles.container}>
       {/* img */}
@@ -15,7 +31,7 @@ const SinglePastPage = () => {
       </div>
       {/* text */}
       <div className={styles.textContaier}>
-        <h1 className={styles.title}>Title of the Post</h1>
+        <h1 className={styles.title}>{post?.title}</h1>
         {/* details */}
         <div className={styles.detail}>
           <Image
@@ -25,11 +41,15 @@ const SinglePastPage = () => {
             height={50}
             className={styles.avater}
           />
+
           {/* author */}
-          <div className={styles.detailText}>
-            <span className={styles.detailTitle}>Author</span>
-            <span className={styles.detailValue}>Hadeer</span>
-          </div>
+
+          {post && (
+            <Suspense fallback={<div>Loading...</div>}>
+              <PostUser userId={post.userId} />
+            </Suspense>
+          )}
+
           {/* puplish */}
           <div className={styles.detailText}>
             <span className={styles.detailTitle}>Publish</span>
@@ -37,12 +57,7 @@ const SinglePastPage = () => {
           </div>
         </div>
         {/* contact */}
-        <div className={styles.contact}>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum fugit
-          voluptatibus, similique quae, quis explicabo placeat aut, odit
-          consequuntur illo corporis assumenda recusandae officiis debitis
-          corrupti! Delectus earum assumenda nihil!
-        </div>
+        <div className={styles.contact}>{post?.body}</div>
       </div>
     </div>
   );
