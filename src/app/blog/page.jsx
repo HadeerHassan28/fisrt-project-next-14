@@ -17,6 +17,7 @@ const Blog = async ({ params, searchParams }) => {
 
   //! from lib.data, without an api
   const posts = await getPosts();
+  //console.log("posts", posts);
   return (
     <div className={styles.contaier}>
       {posts.map((post) => (

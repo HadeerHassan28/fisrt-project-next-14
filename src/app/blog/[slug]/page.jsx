@@ -21,14 +21,17 @@ const SinglePastPage = async ({ params }) => {
   return (
     <div className={styles.container}>
       {/* img */}
-      <div className={styles.imgContaier}>
-        <Image
-          src="https://images.pexels.com/photos/15410074/pexels-photo-15410074/free-photo-of-frame-among-roses-and-leaves.jpeg"
-          alt="single post img"
-          fill
-          className={styles.img}
-        />
-      </div>
+      {post?.img && (
+        <div className={styles.imgContaier}>
+          <Image
+            src={post.img}
+            alt="single post img"
+            fill
+            className={styles.img}
+          />
+        </div>
+      )}
+
       {/* text */}
       <div className={styles.textContaier}>
         <h1 className={styles.title}>{post?.title}</h1>
@@ -53,11 +56,13 @@ const SinglePastPage = async ({ params }) => {
           {/* puplish */}
           <div className={styles.detailText}>
             <span className={styles.detailTitle}>Publish</span>
-            <span className={styles.detailValue}>1/1/2024</span>
+            <span className={styles.detailValue}>
+              {post.createdAt.toString().slice(4, 16)}
+            </span>
           </div>
         </div>
         {/* contact */}
-        <div className={styles.contact}>{post?.body}</div>
+        <div className={styles.contact}>{post?.desc}</div>
       </div>
     </div>
   );

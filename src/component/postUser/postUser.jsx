@@ -14,9 +14,10 @@ import styles from "./postUser.module.css";
 
 const PostUser = async ({ userId }) => {
   // const userData = await getData(userId);
-
+  //console.log(userId);
   // ! fetch without api
   const userData = getUser(userId);
+  console.log("userData", userData.username);
   return (
     <div className={styles.container}>
       <span className={styles.title}>Author</span>
