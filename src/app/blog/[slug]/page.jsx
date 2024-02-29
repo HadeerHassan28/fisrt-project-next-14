@@ -37,14 +37,6 @@ const SinglePastPage = async ({ params }) => {
         <h1 className={styles.title}>{post?.title}</h1>
         {/* details */}
         <div className={styles.detail}>
-          <Image
-            src="https://images.pexels.com/photos/15410074/pexels-photo-15410074/free-photo-of-frame-among-roses-and-leaves.jpeg"
-            alt="single post img"
-            width={50}
-            height={50}
-            className={styles.avater}
-          />
-
           {/* author */}
 
           {post && (

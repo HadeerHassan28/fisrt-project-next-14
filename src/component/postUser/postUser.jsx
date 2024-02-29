@@ -1,4 +1,5 @@
 import { getUser } from "@/lib/data";
+import Image from "next/image";
 import React from "react";
 import styles from "./postUser.module.css";
 
@@ -14,14 +15,24 @@ import styles from "./postUser.module.css";
 
 const PostUser = async ({ userId }) => {
   // const userData = await getData(userId);
-  //console.log(userId);
+  // console.log("65e0657c8eb88d29326d9f47" === userId);
   // ! fetch without api
   const userData = getUser(userId);
-  console.log("userData", userData.username);
+  console.log("userData", userData);
   return (
     <div className={styles.container}>
-      <span className={styles.title}>Author</span>
-      <span className={styles.username}>{userData.username}</span>
+      <Image
+        src={userData.img ? userData.img : "/noavatar.png"}
+        alt="single post img"
+        width={50}
+        height={50}
+        className={styles.avater}
+      />
+
+      <div className={styles.texts}>
+        <span className={styles.title}>Author</span>
+        <span className={styles.username}>{userData.username}</span>
+      </div>
     </div>
   );
 };
