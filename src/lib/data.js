@@ -38,9 +38,9 @@ export const getPost = async (slug) => {
 
 export const getUser = async (id) => {
   try {
-    connectToDb();
+    await connectToDb();
     const user = await User.findById(id);
-    // console.log(user);
+    console.log(user);
     return user;
   } catch (err) {
     console.log(err);
