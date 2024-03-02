@@ -18,11 +18,11 @@ const PostUser = async ({ userId }) => {
   // console.log("65e0657c8eb88d29326d9f47" === userId);
   // ! fetch without api
   const userData = await getUser(userId);
-  //console.log("userData", userData.username);
+  //console.log("userData", userData);
   return (
     <div className={styles.container}>
       <Image
-        src={userData.img ? userData.img : "/noavatar.png"}
+        src={userData?.img ? userData.img : "/noavatar.png"}
         alt="single post img"
         width={50}
         height={50}
@@ -31,7 +31,7 @@ const PostUser = async ({ userId }) => {
 
       <div className={styles.texts}>
         <span className={styles.title}>Author</span>
-        <span className={styles.username}>{userData.username}</span>
+        <span className={styles.username}>{userData?.username}</span>
       </div>
     </div>
   );

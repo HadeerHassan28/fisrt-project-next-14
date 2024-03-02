@@ -11,6 +11,18 @@ import styles from "./single-post.module.css";
 //   else throw new Error(await res.text());
 // };
 
+//! to do dynamic title of the broswer
+export const generateMetadata = async ({ params }) => {
+  const { slug } = params;
+
+  const post = await getPost(slug);
+
+  return {
+    title: post.title,
+    description: post.desc,
+  };
+};
+
 const SinglePastPage = async ({ params }) => {
   const { slug } = params;
   // const post = await getData(slug);
@@ -18,6 +30,7 @@ const SinglePastPage = async ({ params }) => {
 
   //! fetch without api
   const post = await getPost(slug);
+  //console.log("Date", post.createdAt);
   return (
     <div className={styles.container}>
       {/* img */}
@@ -49,7 +62,7 @@ const SinglePastPage = async ({ params }) => {
           <div className={styles.detailText}>
             <span className={styles.detailTitle}>Publish</span>
             <span className={styles.detailValue}>
-              {post?.createdAt.toString().slice(4, 16)}
+              {post?.createdAt?.toString().slice(4, 16)}
             </span>
           </div>
         </div>
