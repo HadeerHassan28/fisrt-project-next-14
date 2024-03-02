@@ -18,7 +18,7 @@ const PostUser = async ({ userId }) => {
   // console.log("65e0657c8eb88d29326d9f47" === userId);
   // ! fetch without api
   const userData = await getUser(userId);
-  console.log("userData", userData.username);
+  //console.log("userData", userData.username);
   return (
     <div className={styles.container}>
       <Image

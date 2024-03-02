@@ -24,10 +24,7 @@
 
   gap: 20px;
 }
-.avater {
-  object-fit: cover;
-  border-radius: 50%;
-}
+
 .detailText {
   display: flex;
   flex-direction: column;

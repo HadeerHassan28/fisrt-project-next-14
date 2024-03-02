@@ -3,7 +3,10 @@
   align-items: center;
   gap: 20px;
 }
-
+.avater {
+  object-fit: cover;
+  border-radius: 50%;
+}
 .texts {
   display: flex;
   flex-direction: column;
