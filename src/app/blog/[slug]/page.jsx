@@ -12,15 +12,23 @@ import styles from "./single-post.module.css";
 // };
 
 //! to do dynamic title of the broswer
-export const generateMetadata = async ({ params }) => {
-  const { slug } = params;
+// export const generateMetadata = async ({ params }) => {
+//   const { slug } = params;
 
-  const post = await getPost(slug);
+//   const post = await getPost(slug);
 
-  return {
-    title: post.title,
-    description: post.desc,
-  };
+//   return {
+//     title: post.title,
+//     description: post.desc,
+//   };
+// };
+
+//!fetch using API routes
+const getData = async (slug) => {
+  const res = await fetch(`http://localhost:3000/api/blog/${slug}`);
+  console.log(res);
+  if (res.ok) return await res.json();
+  else console.log("Error");
 };
 
 const SinglePastPage = async ({ params }) => {
@@ -29,8 +37,11 @@ const SinglePastPage = async ({ params }) => {
   //console.log(params);
 
   //! fetch without api
-  const post = await getPost(slug);
+  //const post = await getPost(slug);
   //console.log("Date", post.createdAt);
+
+  //!fetch using API routes
+  const post = await getData(slug);
   return (
     <div className={styles.container}>
       {/* img */}

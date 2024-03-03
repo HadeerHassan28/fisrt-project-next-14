@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "json-stringify-safe": "^5.0.1",
     "mongoos": "^0.0.1-security",
     "mongoose": "^8.2.0",
     "next": "14.1.0",
