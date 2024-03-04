@@ -26,7 +26,7 @@ import styles from "./single-post.module.css";
 //!fetch using API routes
 const getData = async (slug) => {
   const res = await fetch(`http://localhost:3000/api/blog/${slug}`);
-  console.log(res);
+  // console.log(res);
   if (res.ok) return await res.json();
   else console.log("Error");
 };
