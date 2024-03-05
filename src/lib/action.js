@@ -4,6 +4,7 @@
 // };
 "use server";
 import { revalidatePath } from "next/cache";
+import { signIn, signOut } from "./auth";
 import { Post } from "./models";
 import { connectToDb } from "./utlis";
 
@@ -38,4 +39,16 @@ export const delatePost = async (formData) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+//! for auth using gitHub
+export const handleGitHubLogin = async () => {
+  "use server";
+  await signIn("github");
+};
+
+//!logut
+export const handleLogout = async () => {
+  "use server";
+  await signOut();
 };

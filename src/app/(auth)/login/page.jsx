@@ -1,12 +1,10 @@
-import { auth, signIn } from "@/lib/auth";
+import { handleGitHubLogin } from "@/lib/action";
+import { auth } from "@/lib/auth";
 import React from "react";
 import syles from "./login.module.css";
 const Login = async () => {
   const session = await auth();
-  const handleGitHubLogin = async () => {
-    "use server";
-    await signIn("github");
-  };
+
   console.log(session);
   return (
     <div className={syles.container}>

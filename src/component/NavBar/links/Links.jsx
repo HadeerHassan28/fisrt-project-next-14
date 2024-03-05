@@ -1,10 +1,12 @@
 "use client";
 
+import { handleLogout } from "@/lib/action";
+
 import Image from "next/image";
 import React, { useState } from "react";
 import styles from "./links.module.css";
 import NavLink from "./navBarLink/navLink";
-const Links = () => {
+const Links = async ({ session }) => {
   const links = [
     { title: "Home", path: "/" },
     { title: "About", path: "/about" },
@@ -12,7 +14,9 @@ const Links = () => {
     { title: "Blog", path: "/blog" },
   ];
   const [open, setopen] = useState(false);
-  const session = true;
+
+  //Tem
+  // const session = true;
   const isAdmin = true;
 
   // function for small  screen menu open and close
@@ -26,11 +30,14 @@ const Links = () => {
         {links.map((ele) => (
           <NavLink item={ele} key={ele.title} />
         ))}
-        {session ? (
+        {session?.user ? (
           <>
-            {isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} />}
-
-            <button className={styles.logout}>Logout</button>
+            {session.user?.isAdmin && (
+              <NavLink item={{ title: "Admin", path: "/admin" }} />
+            )}
+            <form action={handleLogout}>
+              <button className={styles.logout}>Logout</button>
+            </form>
           </>
         ) : (
           <NavLink item={{ title: "Login", path: "/login" }} />
